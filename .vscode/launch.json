@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+             "name": "Debug con entrada redirigida (Windows)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\programa.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "runtimeExecutable": "cmd.exe",
+            "runtimeArgs": ["/C", "${workspaceFolder}\\programa.exe < ${workspaceFolder}\\datos.txt"],
+        }
+    ]
+}
