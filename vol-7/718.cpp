@@ -1,10 +1,12 @@
 #include <iostream>
-#include <vector>
+#include <fstream>
 #include <algorithm>
+
+//#define DOMJUDGE
 
 using namespace std;
 
-long solucion(long v[], int p) {
+long solucion(int v[], int p) {
     auto i = 1;
     auto ult_elem = v[0];
     auto count_iguales = 1;
@@ -26,15 +28,38 @@ long solucion(long v[], int p) {
 }
 
 
-int main() {
+
+bool casoDePrueba() {
+
+    //leer caso de prueba final
     int p; cin >> p;
-    while (p != 0) {
-        long v[200000];
+    if (p == 0) {
+        return false;
+    }
+    else {
+        int v[200000];
         for (int i = 0; i < p; i++) {
             cin >> v[i];
         }
         sort(v, v + p);
-        cout << solucion(v, p) << endl;
-        cin >> p;
+        cout << solucion(v, p) << '\n';
+        // CÓDIGO PRINCIPAL AQUÍ
+        return true;
+     }
+
+} // casoDePrueba
+
+int main() {
+    // ajuste para que cin extraiga directamente de un fichero
+#ifndef DOMJUDGE
+    std::ifstream in("../in");
+    auto cinbuf = std::cin.rdbuf(in.rdbuf());
+#endif
+    while(casoDePrueba()) {
     }
+#ifndef DOMJUDGE
+    std::cin.rdbuf(cinbuf);
+    system("pause");
+#endif
+    return 0;
 }
