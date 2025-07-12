@@ -2,19 +2,34 @@
 #include <fstream>
 
 //#define DOMJUDGE
-
+#define INTMAX 1000000000
 using namespace std;
 
 bool casoDePrueba() {
-
     //leer caso de prueba final
-    if () {
+    int n; cin >> n;
+    if (n == 0) {
         return false;
     }
     else {
-        // CÓDIGO PRINCIPAL AQUÍ
+        int last, less, current;
+        cin >> last;
+        less = last;
+        n--;
+        while(n--) {
+            cin >> current;
+            if (current > last) {
+                if (current < less) {
+                    cout << "NO\n";
+                    return false;
+                }
+                less = current;
+            }
+            last = current;
+        }
+        cout << "SI\n";
         return true;
-     }
+    }
 
 } // casoDePrueba
 

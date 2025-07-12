@@ -32,7 +32,6 @@ int main() {
     // restablecimiento de cin
 #ifndef DOMJUDGE
     std::cin.rdbuf(cinbuf);
-    system("pause");
 #endif
     return 0;
 }
